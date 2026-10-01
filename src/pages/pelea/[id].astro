@@ -52,8 +52,8 @@ const { fight } = Astro.props;
           <div class="absolute inset-0 bg-sf-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
           
           {fight.fighter1.image && (
-            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-video md:aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all">
-              <Image src={fight.fighter1.image} width={600} height={800} format="webp" alt={fight.fighter1.name} class="w-full h-full object-cover object-top" />
+            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all max-w-sm mx-auto">
+              <Image src={fight.fighter1.image} width={600} height={800} format="webp" alt={fight.fighter1.name} class="w-full h-full object-cover object-[center_15%]" />
             </div>
           )}
 
@@ -101,8 +101,8 @@ const { fight } = Astro.props;
           <div class="absolute inset-0 bg-sf-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
           {fight.fighter2.image && (
-            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-video md:aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all">
-              <Image src={fight.fighter2.image} width={600} height={800} format="webp" alt={fight.fighter2.name} class="w-full h-full object-cover object-top" />
+            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all max-w-sm mx-auto">
+              <Image src={fight.fighter2.image} width={600} height={800} format="webp" alt={fight.fighter2.name} class="w-full h-full object-cover object-[center_15%]" />
             </div>
           )}
 
