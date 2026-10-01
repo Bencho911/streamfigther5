@@ -91,13 +91,13 @@ export const fights: Fight[] = [
     fighter1: {
       name: 'Rey de la City', nickname: 'El Rey', color: 'text-purple-400',
       stats: { age: 27, height: '1.78m', weight: '80kg', reach: '1.80m' },
-      socials: { instagram: 'https://instagram.com/reydelacity', kick: 'https://kick.com/reydelacity' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgRey
     },
     fighter2: {
       name: 'Wegotkicks', nickname: 'El Sneakerhead', color: 'text-pink-400',
       stats: { age: 23, height: '1.82m', weight: '85kg', reach: '1.84m' },
-      socials: { instagram: 'https://instagram.com/wegotkicks', kick: 'https://kick.com/wegotkicks' },
+      socials: { instagram: 'https://www.instagram.com/wegotkicks.co/', kick: 'https://kick.com' },
       image: imgWegot
     },
     description: 'Estilo y flow en el ring. Una pelea donde el honor de la calle está en juego.',
@@ -112,13 +112,13 @@ export const fights: Fight[] = [
     fighter1: {
       name: 'Sebastucho', nickname: 'La Locura', color: 'text-blue-400',
       stats: { age: 24, height: '1.70m', weight: '70kg', reach: '1.72m' },
-      socials: { instagram: 'https://instagram.com/sebastucho_', kick: 'https://kick.com/sebastucho' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgSebastucho
     },
     fighter2: {
       name: 'Leandro', nickname: 'La sapa', color: 'text-cyan-400',
       stats: { age: 23, height: '1.73m', weight: '71kg', reach: '1.74m' },
-      socials: { instagram: 'https://instagram.com/leandro_ig', kick: 'https://kick.com/leandro' },
+      socials: { instagram: 'https://www.instagram.com/leandroloaizam/', kick: 'https://kick.com/lasapaaaaa' },
       image: imgLeandro
     },
     description: 'Rivalidad al máximo nivel. La técnica de Leandro contra la explosividad de Sebastucho.',
@@ -133,13 +133,13 @@ export const fights: Fight[] = [
     fighter1: {
       name: 'Herrera', nickname: 'El de la H', color: 'text-green-400',
       stats: { age: 29, height: '1.85m', weight: '105kg', reach: '1.88m' },
-      socials: { instagram: 'https://instagram.com/elherrera', kick: 'https://kick.com/elherrera' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgHerrera
     },
     fighter2: {
       name: 'JH', nickname: '¡Qué Bendición!', color: 'text-yellow-400',
       stats: { age: 31, height: '1.82m', weight: '98kg', reach: '1.85m' },
-      socials: { instagram: 'https://instagram.com/jhdelacruz777', kick: 'https://kick.com/jhdelacruz777' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgJh
     },
     description: 'Un verdadero choque de trenes. El Coliseo MedPlus temblará con cada golpe.',
@@ -154,13 +154,13 @@ export const fights: Fight[] = [
     fighter1: {
       name: 'Valentino', nickname: 'El Galán', color: 'text-rose-400',
       stats: { age: 27, height: '1.74m', weight: '68kg', reach: '1.75m' },
-      socials: { instagram: 'https://instagram.com/valentinobyle', twitter: 'https://x.com/valentino' },
+      socials: { instagram: 'https://instagram.com', twitter: 'https://x.com' },
       image: imgValentino
     },
     fighter2: {
       name: 'Emiro', nickname: 'El Fuego', color: 'text-orange-400',
       stats: { age: 23, height: '1.76m', weight: '65kg', reach: '1.76m' },
-      socials: { instagram: 'https://instagram.com/emironavarro', kick: 'https://kick.com/emironavarro' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgEmiro
     },
     description: 'Duelo de personalidades. Valentino busca mantener su buena racha ante un Emiro hambriento de victoria.',
@@ -181,7 +181,7 @@ export const fights: Fight[] = [
     fighter2: {
       name: 'Daren', nickname: 'Mortadelo', color: 'text-indigo-400',
       stats: { age: 28, height: '1.85m', weight: '100kg', reach: '1.80m' },
-      socials: { instagram: 'https://instagram.com/darencp', twitter: 'https://x.com/darencp' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgDaren
     },
     description: 'El campo contra la ciudad. Una pelea que calentará los motores para toda la velada.',
