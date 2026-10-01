@@ -1,0 +1,140 @@
+---
+// FAQ Accordion — H-14 fix: proper aria-labelledby with matching IDs
+const faqs = [
+  {
+    id: 'faq-1',
+    question: '¿Dónde puedo comprar entradas para Stream Fighters 5?',
+    answer: 'La única plataforma oficial y segura para comprar entradas físicas es <strong>Taquillalive</strong>. Ingresa en <a href="https://taquillalive.com/streamfighters5" target="_blank" rel="noopener noreferrer" class="text-sf-primary hover:underline">taquillalive.com/streamfighters5</a>. No confíes en reventas ni enlaces en redes sociales no oficiales.',
+  },
+  {
+    id: 'faq-2',
+    question: '¿El evento será transmitido gratis?',
+    answer: 'Sí. La transmisión será <strong>100% gratuita</strong> a través del canal oficial de WestCol en <a href="https://kick.com/westcol" target="_blank" rel="noopener noreferrer" class="text-sf-primary hover:underline">kick.com/westcol</a>. Solo necesitas una cuenta en Kick.',
+  },
+  {
+    id: 'faq-3',
+    question: '¿Hay edad mínima para entrar al Coliseo MedPlus?',
+    answer: 'El evento es apto para mayores de 14 años en tribuna general. Los Palcos Premium y zonas VIP con venta de licor son estrictamente para mayores de 18 años con cédula en mano.',
+  },
+  {
+    id: 'faq-4',
+    question: '¿Cómo llego al Coliseo MedPlus?',
+    answer: 'El Coliseo MedPlus está ubicado en Calle 80 Km 1.5 Vía Cota, Bogotá. Recomendamos el uso de transporte público (bus alimentador Calle 80 o Transmilenio). Habrá parqueaderos habilitados con costo adicional. Evita llegar en carro si es posible — se esperan más de 15.000 asistentes.',
+  },
+  {
+    id: 'faq-5',
+    question: '¿Qué pasa si cancelo o pierdo mi entrada?',
+    answer: 'Las entradas son personales e intransferibles. En caso de pérdida, contacta directamente a Taquillalive con tu número de pedido. Las entradas físicas tienen código QR único. No se hacen reembolsos salvo cancelación del evento por parte de la organización.',
+  },
+  {
+    id: 'faq-6',
+    question: '¿A qué hora comienza el evento?',
+    answer: 'Las puertas abren desde las <strong>15:00 (hora Colombia)</strong>. El pre-show y alfombra comienza a las <strong>17:00</strong> y los combates se inician aproximadamente a las <strong>18:30</strong>. Te recomendamos llegar temprano.',
+  },
+];
+---
+
+<section
+  id="faq"
+  class="py-24 bg-sf-surface border-t border-sf-border"
+  aria-labelledby="faq-heading"
+>
+  <div class="container mx-auto px-4 max-w-3xl">
+
+    <div class="text-center mb-12 " data-aos="fade-up">
+      <h2 id="faq-heading" class="font-heading text-4xl md:text-5xl text-white uppercase tracking-tight mb-4">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-sf-muted">Todo lo que necesitas saber antes del 14 de noviembre.</p>
+    </div>
+
+    <div class="space-y-3" role="list">
+      {faqs.map((faq, i) => (
+        <div
+          class="faq-item bg-sf-bg border border-sf-border rounded-xl overflow-hidden "
+          data-aos="fade-up" data-aos-delay={i * 50}
+          role="listitem"
+        >
+          <!-- H-14 fix: button has id referenced by aria-labelledby on the region -->
+          <button
+            id={`btn-${faq.id}`}
+            class="faq-btn w-full flex justify-between items-center p-5 text-left
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sf-primary focus-visible:ring-inset"
+            aria-expanded="false"
+            aria-controls={faq.id}
+          >
+            <span class="font-bold text-white pr-4 text-sm md:text-base">
+              {faq.question}
+            </span>
+            <svg
+              class="faq-icon w-5 h-5 text-sf-primary shrink-0"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id={faq.id}
+            class="faq-content"
+            role="region"
+            aria-labelledby={`btn-${faq.id}`}
+          >
+            <div
+              class="p-5 pt-0 text-sf-muted text-sm leading-relaxed border-t border-sf-border/50"
+              set:html={faq.answer}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-10 text-center " data-aos="fade-up">
+      <p class="text-sf-muted text-sm mb-3">¿Tienes otra pregunta?</p>
+      <a
+        href="https://kick.com/westcol"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm font-bold text-sf-kick border border-sf-kick/30 bg-sf-kick/10
+               px-5 py-2.5 rounded-full hover:bg-sf-kick/20 transition-colors
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sf-kick"
+      >
+        Pregunta en el canal de WestCol en Kick
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // FAQ Accordion — clean, accessible implementation
+  const faqBtns = document.querySelectorAll<HTMLButtonElement>('.faq-btn');
+
+  faqBtns.forEach(btn => {
+    const contentId = btn.getAttribute('aria-controls')!;
+    const content   = document.getElementById(contentId)!;
+    const icon      = btn.querySelector<SVGElement>('.faq-icon')!;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others (accordion behaviour)
+      faqBtns.forEach(other => {
+        if (other !== btn) {
+          const otherId      = other.getAttribute('aria-controls')!;
+          const otherContent = document.getElementById(otherId)!;
+          const otherIcon    = other.querySelector<SVGElement>('.faq-icon')!;
+          other.setAttribute('aria-expanded', 'false');
+          otherContent.style.maxHeight = '0';
+          otherIcon.style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle clicked item
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      content.style.maxHeight = isOpen ? '0' : `${content.scrollHeight}px`;
+      icon.style.transform     = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+</script>

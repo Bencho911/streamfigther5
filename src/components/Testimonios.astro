@@ -1,0 +1,126 @@
+---
+import { testimonials } from '../data/testimonials';
+
+const platformIcons: Record<string, string> = {
+  kick:      '🟢',
+  twitter:   '𝕏',
+  instagram: '📸',
+  tiktok:    '🎵',
+};
+
+const platformLabels: Record<string, string> = {
+  kick:      'Kick',
+  twitter:   'X (Twitter)',
+  instagram: 'Instagram',
+  tiktok:    'TikTok',
+};
+---
+
+<section
+  id="testimonios"
+  class="py-24 bg-sf-bg2 relative border-y border-sf-border/50"
+  aria-labelledby="testimonios-heading"
+>
+  <!-- Radial glow -->
+  <div
+    class="absolute left-0 top-0 w-1/2 h-full pointer-events-none"
+    style="background: radial-gradient(ellipse at left, rgba(255,0,51,0.07) 0%, transparent 60%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-14 " data-aos="fade-up">
+      <span class="inline-block text-sf-primary font-display font-bold text-xs tracking-widest uppercase mb-4
+                   border border-sf-primary/30 bg-sf-primary/10 px-4 py-1.5 rounded-full">
+        Lo que dice la comunidad
+      </span>
+      <h2 id="testimonios-heading" class="font-heading text-4xl md:text-5xl text-white uppercase tracking-tight mb-3">
+        Ellos ya lo vivieron
+      </h2>
+      <p class="text-sf-muted text-lg font-medium max-w-xl mx-auto">
+        Más de 15.000 personas llenaron el Coliseo en el SF4. Aquí te cuentan.
+      </p>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((t, i) => (
+        <figure
+          class="testimonial-card bg-sf-surface border border-sf-border rounded-2xl p-6 flex flex-col gap-4"
+          data-aos="fade-up" data-aos-delay={(i % 3) * 100}
+          aria-label={`Testimonio de ${t.name}, desde ${platformLabels[t.platform]}`}
+        >
+          <!-- Stars -->
+          <div class="flex gap-1" aria-label={`${t.rating} de 5 estrellas`} role="img">
+            {Array.from({ length: 5 }).map((_, s) => (
+              <svg
+                class={`w-4 h-4 ${s < t.rating ? 'text-sf-tertiary' : 'text-sf-border'}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="flex-1">
+            <p class="text-sf-muted text-sm leading-relaxed">
+              &ldquo;{t.quote}&rdquo;
+            </p>
+          </blockquote>
+
+          <!-- Author -->
+          <figcaption class="flex items-center gap-3 pt-3 border-t border-sf-border">
+            <!-- Avatar (emoji fallback — sin imagen externa para evitar CLS) -->
+            <div
+              class="w-10 h-10 rounded-full bg-sf-bg2 border border-sf-border flex items-center justify-center text-xl shrink-0"
+              aria-hidden="true"
+            >
+              {t.avatar}
+            </div>
+            <div class="min-w-0">
+              <p class="font-bold text-white text-sm truncate">{t.name}</p>
+              <p class="text-sf-muted text-xs truncate">
+                <span aria-hidden="true">{platformIcons[t.platform]} </span>
+                {t.handle}
+                <span class="mx-1 text-sf-border">·</span>
+                {t.edition}
+              </p>
+            </div>
+            <!-- Platform badge -->
+            <span
+              class="ml-auto text-xs font-display font-bold px-2 py-0.5 rounded-full bg-sf-bg border border-sf-border text-sf-muted shrink-0"
+              aria-label={`Plataforma: ${platformLabels[t.platform]}`}
+            >
+              {platformLabels[t.platform]}
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <!-- Overall rating banner -->
+    <div class="mt-12 text-center " data-aos="zoom-in">
+      <div class="inline-flex items-center gap-4 bg-sf-surface border border-sf-border rounded-2xl px-8 py-5">
+        <div class="text-center">
+          <p class="font-heading text-5xl text-sf-primary text-glow-red">5.0</p>
+          <p class="text-xs text-sf-muted uppercase tracking-wider mt-1">Valoración</p>
+        </div>
+        <div class="w-px h-12 bg-sf-border"></div>
+        <div class="text-center">
+          <p class="font-heading text-3xl text-white">+15K</p>
+          <p class="text-xs text-sf-muted uppercase tracking-wider mt-1">Asistentes SF4</p>
+        </div>
+        <div class="w-px h-12 bg-sf-border"></div>
+        <div class="text-center">
+          <p class="font-heading text-3xl text-sf-kick text-glow-kick">Gratis</p>
+          <p class="text-xs text-sf-muted uppercase tracking-wider mt-1">En Kick</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

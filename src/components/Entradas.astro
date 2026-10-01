@@ -1,0 +1,203 @@
+---
+// Entradas / Pricing — clases Tailwind 100% estáticas (no dinámicas en strings)
+// para que el scanner de Tailwind v4 las detecte correctamente en build time.
+const taquillaliveUrl = 'https://taquillalive.com/streamfighters5';
+---
+
+<section
+  id="entradas"
+  class="py-24 bg-sf-bg2 relative"
+  aria-labelledby="entradas-heading"
+>
+  <!-- Radial glow decorativo -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at 50% 0%, rgba(255,0,51,0.08) 0%, transparent 60%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2
+        id="entradas-heading"
+        class="font-heading text-4xl md:text-5xl text-white uppercase tracking-tight mb-4"
+      >
+        Elige tu experiencia
+      </h2>
+      <p class="text-sf-muted text-lg font-medium">
+        Vive la adrenalina presencial en el Coliseo MedPlus.
+      </p>
+    </div>
+
+    <!-- Pricing grid — 3 tarjetas con clases 100% estáticas -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+
+      <!-- ── Tier 1: General ───────────────────────────────── -->
+      <div class="flex flex-col bg-sf-surface border border-sf-border rounded-2xl p-8 relative
+                  transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+           data-aos="fade-up">
+
+        <h3 class="font-heading text-2xl text-white uppercase mb-2">General</h3>
+
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="font-display text-3xl font-bold text-white">$90.000</span>
+          <span class="text-sf-muted text-sm">COP</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 flex-1" role="list">
+          {[
+            'Acceso a tribuna general',
+            'Vista pantallas gigantes',
+            'Acceso zona de comidas',
+            'Transmisión pre-show incluida',
+          ].map(feat => (
+            <li class="flex items-start gap-3 text-sm text-gray-300">
+              <svg class="w-5 h-5 shrink-0 mt-0.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              {feat}
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={taquillaliveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full text-center font-bold py-3.5 rounded-xl transition-all duration-200
+                 bg-sf-bg border border-sf-border text-white
+                 hover:bg-sf-border
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          aria-label="Comprar entrada General en Taquillalive"
+        >
+          Comprar ahora
+        </a>
+      </div>
+
+      <!-- ── Tier 2: VIP Ring Side (destacada) ─────────────── -->
+      <div class="flex flex-col bg-sf-bg border-2 border-sf-primary rounded-2xl p-8 relative
+                  shadow-neon-red md:-translate-y-4
+                  transition-all duration-300 hover:-translate-y-6"
+           data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Badge "Más vendido" -->
+        <div
+          class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+                 bg-sf-primary text-white font-display text-xs uppercase tracking-widest px-4 py-1 rounded-full"
+          aria-label="Opción más vendida"
+        >
+          Más vendido
+        </div>
+
+        <h3 class="font-heading text-2xl text-sf-primary uppercase mb-2">VIP Ring Side</h3>
+
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="font-display text-4xl font-bold text-sf-primary">$250.000</span>
+          <span class="text-sf-muted text-sm">COP</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 flex-1" role="list">
+          {[
+            'Ingreso preferencial (Fast Pass)',
+            'Sillas numeradas cerca al ring',
+            'Merch exclusivo SF5 (Camiseta)',
+            'Acceso a barras VIP',
+            'Zona selfie con staff oficial',
+          ].map(feat => (
+            <li class="flex items-start gap-3 text-sm text-white">
+              <svg class="w-5 h-5 shrink-0 mt-0.5 text-sf-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              {feat}
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={taquillaliveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full text-center font-bold py-3.5 rounded-xl transition-all duration-200
+                 bg-sf-primary text-white shadow-neon-red
+                 hover:bg-red-700
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          aria-label="Comprar entrada VIP Ring Side en Taquillalive"
+        >
+          Comprar VIP
+        </a>
+      </div>
+
+      <!-- ── Tier 3: Palco Premium ──────────────────────────── -->
+      <div class="flex flex-col bg-sf-surface border border-sf-border rounded-2xl p-8 relative
+                  transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+           data-aos="fade-up" data-aos-delay="200">
+
+        <h3 class="font-heading text-2xl text-sf-tertiary uppercase mb-2">Palco Premium</h3>
+
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="font-display text-3xl font-bold text-white">$3.500.000</span>
+          <span class="text-sf-muted text-sm">COP · x10 personas</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 flex-1" role="list">
+          {[
+            'Para 10 personas',
+            'Vista privilegiada desde palco',
+            'Servicio de mesero personalizado',
+            'Botella premium incluida',
+            'Meet & Greet (Sorteo)',
+          ].map(feat => (
+            <li class="flex items-start gap-3 text-sm text-gray-300">
+              <svg class="w-5 h-5 shrink-0 mt-0.5 text-sf-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              {feat}
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={taquillaliveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full text-center font-bold py-3.5 rounded-xl transition-all duration-200
+                 bg-sf-tertiary text-sf-bg
+                 hover:bg-yellow-400
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sf-tertiary"
+          aria-label="Reservar Palco Premium en Taquillalive"
+        >
+          Reservar Palco
+        </a>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- Disclaimer + mapa de zonas -->
+    <div class="mt-10 text-center" data-aos="fade-up">
+      <p class="text-xs text-sf-muted mb-4">
+        Precios sujetos a disponibilidad. Se aplican cargos por servicio de Taquillalive.
+        Compra 100% segura y oficial.
+      </p>
+      <a
+        href={taquillaliveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm text-white
+               hover:text-sf-primary transition-colors duration-200
+               border-b border-transparent hover:border-sf-primary pb-0.5
+               focus-visible:outline-none focus-visible:text-sf-primary"
+      >
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+          />
+        </svg>
+        Ver mapa de zonas del Coliseo MedPlus
+      </a>
+    </div>
+
+  </div>
+</section>

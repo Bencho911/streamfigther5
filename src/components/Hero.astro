@@ -1,0 +1,211 @@
+---
+import { Image } from 'astro:assets';
+import ringImage from '../assets/peleadores/ring.png';
+// Hero Section — countdown, glitch title, CTAs
+---
+
+<section
+  class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+  aria-labelledby="hero-heading"
+>
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute inset-0 bg-gradient-to-b from-sf-bg/80 via-sf-bg/60 to-sf-bg z-10"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,0,51,0.18)_0%,_transparent_70%)] z-10 mix-blend-screen"></div>
+    <Image
+      src={ringImage}
+      sizes="100vw"
+      width={1920}
+      height={1280}
+      format="webp"
+      alt="Arena de boxeo con iluminación dramática para Stream Fighters 5"
+      class="w-full h-full object-cover object-top opacity-50 filter contrast-125 saturate-50"
+      fetchpriority="high"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 container mx-auto px-4 flex flex-col items-center text-center mt-10">
+
+    <!-- Badge -->
+    <span
+      class="inline-block text-sf-primary font-display font-bold tracking-widest uppercase mb-5 text-xs md:text-sm
+             border border-sf-primary/30 bg-sf-primary/10 px-4 py-1.5 rounded-full "
+    >
+      14 · Nov · 2026 — El evento del año
+    </span>
+
+    <!-- Main Heading -->
+    <h1
+      id="hero-heading"
+      class="font-heading text-5xl sm:text-7xl lg:text-8xl xl:text-9xl leading-none tracking-tight mb-5 uppercase "
+      data-aos="fade-up"
+    >
+      La noche que<br>
+      <span class="glitch-wrapper inline-block mt-1">
+        <span
+          class="glitch-text text-white text-glow"
+          data-text="Paralizará LatAm"
+        >Paralizará LatAm</span>
+      </span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      class="text-lg md:text-xl text-sf-muted max-w-2xl mb-10 font-medium "
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      Coliseo MedPlus, Bogotá &middot; 10 combates &middot; Shows en vivo<br class="hidden md:block" />
+      Transmisión global gratuita y exclusiva por <strong class="text-sf-kick">Kick</strong>.
+    </p>
+
+    <!-- Countdown — H-05 fix: role="timer" + aria-live -->
+    <div
+      class="flex gap-4 md:gap-8 mb-10 "
+      data-aos="fade-up"
+      data-aos-delay="200"
+      role="timer"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label="Cuenta regresiva hasta Stream Fighters 5"
+    >
+      {[
+        { id: 'cd-days',    label: 'Días'  },
+        { id: 'cd-hours',   label: 'Horas' },
+        { id: 'cd-minutes', label: 'Min'   },
+        { id: 'cd-seconds', label: 'Seg'   },
+      ].map(({ id, label }, i) => (
+        <>
+          {i > 0 && (
+            <span
+              class="font-display text-3xl md:text-4xl text-sf-primary/40 self-start mt-1"
+              aria-hidden="true"
+            >:</span>
+          )}
+          <div class="flex flex-col items-center min-w-[56px]">
+            <span
+              id={id}
+              class={`font-display text-4xl md:text-5xl font-bold text-glow ${label === 'Seg' ? 'text-sf-primary text-glow-red' : 'text-white'}`}
+            >00</span>
+            <span class={`text-xs md:text-sm uppercase tracking-wider mt-1 ${label === 'Seg' ? 'text-sf-primary/70' : 'text-sf-muted'}`}>
+              {label}
+            </span>
+          </div>
+        </>
+      ))}
+    </div>
+
+    <!-- CTAs -->
+    <div
+      class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto "
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
+      <a
+        href="https://taquillalive.com/streamfighters5"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto text-center font-bold text-lg text-white bg-sf-primary px-8 py-4 rounded-full
+               hover:bg-red-700 hover:shadow-neon-red transition-all duration-200 hover:-translate-y-1
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sf-primary focus-visible:ring-offset-2 focus-visible:ring-offset-sf-bg"
+      >
+        Asegura tu entrada
+      </a>
+      <a
+        href="#como-ver"
+        class="w-full sm:w-auto flex items-center justify-center gap-2 font-bold text-lg text-white
+               bg-sf-surface border border-sf-border px-8 py-4 rounded-full
+               hover:bg-sf-border transition-all duration-200
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sf-bg"
+      >
+        <svg class="w-5 h-5 text-sf-kick shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 3.5v17h-4v-5h-3v5H3v-17h11v5h3v-5h4Zm-8 12v-5h3v5h-3Z"/>
+        </svg>
+        Ver en Kick — gratis
+      </a>
+      <button
+        id="btn-trailer"
+        class="w-full sm:w-auto flex items-center justify-center gap-2 font-bold text-lg text-white
+               bg-transparent border border-sf-muted px-8 py-4 rounded-full
+               hover:bg-white hover:text-black hover:border-white transition-all duration-200
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white"
+      >
+        <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Ver Tráiler
+      </button>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block animate-bounce" aria-hidden="true">
+    <svg class="w-6 h-6 text-sf-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    </svg>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="trailer-modal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 bg-black/95 backdrop-blur-md">
+    <div class="relative h-[85vh] max-h-full aspect-[9/16] mx-4">
+      <button id="close-trailer" class="absolute -top-12 right-0 text-white hover:text-sf-primary font-display font-bold text-lg flex items-center gap-2 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        Cerrar
+      </button>
+      <iframe id="trailer-video" class="w-full h-full rounded-2xl shadow-neon-red bg-sf-bg2" src="" title="Stream Fighters Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Countdown — Target: 14 Nov 2026, 17:00 Colombia (UTC-5)
+  const TARGET = new Date('2026-11-14T17:00:00-05:00').getTime();
+
+  const daysEl    = document.getElementById('cd-days')!;
+  const hoursEl   = document.getElementById('cd-hours')!;
+  const minutesEl = document.getElementById('cd-minutes')!;
+  const secondsEl = document.getElementById('cd-seconds')!;
+
+  function pad(n: number) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const diff = TARGET - Date.now();
+    if (diff <= 0) {
+      daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = '00';
+      clearInterval(timer);
+      return;
+    }
+    daysEl.textContent    = pad(Math.floor(diff / 86_400_000));
+    hoursEl.textContent   = pad(Math.floor((diff % 86_400_000) / 3_600_000));
+    minutesEl.textContent = pad(Math.floor((diff % 3_600_000) / 60_000));
+    secondsEl.textContent = pad(Math.floor((diff % 60_000) / 1000));
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  // Trailer Modal Logic
+  const btnTrailer = document.getElementById('btn-trailer');
+  const modalTrailer = document.getElementById('trailer-modal');
+  const closeTrailer = document.getElementById('close-trailer');
+  const trailerVideo = document.getElementById('trailer-video');
+  // Reemplazar este link con el trailer oficial de Youtube
+  const videoSrc = "https://www.youtube.com/embed/fCX4yn82KyE?autoplay=1"; 
+
+  if (btnTrailer && modalTrailer && closeTrailer && trailerVideo) {
+    btnTrailer.addEventListener('click', () => {
+      trailerVideo.setAttribute('src', videoSrc);
+      modalTrailer.classList.remove('opacity-0', 'pointer-events-none');
+    });
+
+    closeTrailer.addEventListener('click', () => {
+      modalTrailer.classList.add('opacity-0', 'pointer-events-none');
+      trailerVideo.setAttribute('src', ''); // Stop video
+    });
+
+    modalTrailer.addEventListener('click', (e) => {
+      if (e.target === modalTrailer) {
+        closeTrailer.click();
+      }
+    });
+  }
+</script>

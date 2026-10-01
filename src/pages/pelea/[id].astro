@@ -1,0 +1,240 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { fights } from '../../data/fights';
+
+export function getStaticPaths() {
+  return fights.map(fight => ({
+    params: { id: fight.id.toString() },
+    props: { fight },
+  }));
+}
+
+const { fight } = Astro.props;
+---
+<Layout>
+  <Header />
+  
+  <main class="min-h-screen pt-24 pb-12 relative" aria-labelledby="pelea-heading">
+    <!-- background effect -->
+    <div class="absolute inset-0 pointer-events-none bg-sf-bg2 -z-10 overflow-hidden">
+      {fight.posterImage && (
+        <Image src={fight.posterImage} alt="" class="w-full h-full object-cover opacity-15 filter grayscale-[50%] blur-sm scale-105" />
+      )}
+      <div class="absolute inset-0 bg-gradient-to-b from-sf-bg via-sf-bg/70 to-sf-bg"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Back button -->
+      <a href="/#cartelera" class="inline-flex items-center gap-2 text-sf-muted hover:text-white transition-colors mb-8 font-display text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Volver a Cartelera
+      </a>
+
+      <!-- Title -->
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="inline-block border border-sf-border bg-sf-surface px-4 py-1.5 rounded-full font-display text-xs uppercase tracking-widest text-sf-muted mb-4">
+          Combate #{fight.id} · {fight.weight}
+        </span>
+        <h1 id="pelea-heading" class="font-heading text-4xl md:text-6xl text-white uppercase tracking-tight">
+          Cara a Cara
+        </h1>
+        <p class="text-sf-muted max-w-xl mx-auto mt-4">{fight.description}</p>
+      </div>
+
+      <!-- Face off UI -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 max-w-5xl mx-auto mb-16" data-aos="zoom-in">
+        
+        <!-- Fighter 1 -->
+        <div class="flex-1 w-full text-center md:text-right bg-sf-surface border border-sf-border rounded-2xl p-6 relative overflow-hidden group shadow-surface">
+          <div class="absolute inset-0 bg-sf-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+          
+          {fight.fighter1.image && (
+            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-video md:aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all">
+              <Image src={fight.fighter1.image} width={600} height={800} format="webp" alt={fight.fighter1.name} class="w-full h-full object-cover object-top" />
+            </div>
+          )}
+
+          <h2 class={`font-heading text-4xl uppercase text-glow ${fight.fighter1.color}`}>{fight.fighter1.name}</h2>
+          <p class="font-display text-sm text-sf-muted uppercase tracking-widest mb-4">"{fight.fighter1.nickname}"</p>
+          
+          <div class="flex flex-wrap justify-center md:justify-end gap-3 mb-6">
+            {fight.fighter1.socials?.instagram && (
+              <a href={fight.fighter1.socials.instagram} target="_blank" rel="noopener noreferrer" class="text-sf-muted hover:text-white bg-sf-bg border border-sf-border px-3 py-1.5 rounded text-xs font-display flex items-center gap-2">
+                Instagram ↗
+              </a>
+            )}
+            {fight.fighter1.socials?.kick && (
+              <a href={fight.fighter1.socials.kick} target="_blank" rel="noopener noreferrer" class="text-sf-kick hover:text-white bg-sf-bg border border-sf-border px-3 py-1.5 rounded text-xs font-display flex items-center gap-2">
+                Kick ↗
+              </a>
+            )}
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mt-6 font-display text-sm text-left">
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Edad</span>
+              <span class="text-white font-bold">{fight.fighter1.stats?.age} años</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Estatura</span>
+              <span class="text-white font-bold">{fight.fighter1.stats?.height}</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Peso</span>
+              <span class="text-white font-bold">{fight.fighter1.stats?.weight}</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Alcance</span>
+              <span class="text-white font-bold">{fight.fighter1.stats?.reach}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VS -->
+        <div class="shrink-0 font-heading text-6xl text-sf-muted/30 italic my-4 md:my-0">VS</div>
+
+        <!-- Fighter 2 -->
+        <div class="flex-1 w-full text-center md:text-left bg-sf-surface border border-sf-border rounded-2xl p-6 relative overflow-hidden group shadow-surface">
+          <div class="absolute inset-0 bg-sf-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+          {fight.fighter2.image && (
+            <div class="mb-6 rounded-xl overflow-hidden border border-sf-border aspect-video md:aspect-[3/4] relative opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 transition-all">
+              <Image src={fight.fighter2.image} width={600} height={800} format="webp" alt={fight.fighter2.name} class="w-full h-full object-cover object-top" />
+            </div>
+          )}
+
+          <h2 class={`font-heading text-4xl uppercase text-glow ${fight.fighter2.color}`}>{fight.fighter2.name}</h2>
+          <p class="font-display text-sm text-sf-muted uppercase tracking-widest mb-4">"{fight.fighter2.nickname}"</p>
+          
+          <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+            {fight.fighter2.socials?.instagram && (
+              <a href={fight.fighter2.socials.instagram} target="_blank" rel="noopener noreferrer" class="text-sf-muted hover:text-white bg-sf-bg border border-sf-border px-3 py-1.5 rounded text-xs font-display flex items-center gap-2">
+                Instagram ↗
+              </a>
+            )}
+            {fight.fighter2.socials?.twitter && (
+              <a href={fight.fighter2.socials.twitter} target="_blank" rel="noopener noreferrer" class="text-sf-muted hover:text-white bg-sf-bg border border-sf-border px-3 py-1.5 rounded text-xs font-display flex items-center gap-2">
+                X (Twitter) ↗
+              </a>
+            )}
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mt-6 font-display text-sm text-left">
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Edad</span>
+              <span class="text-white font-bold">{fight.fighter2.stats?.age} años</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Estatura</span>
+              <span class="text-white font-bold">{fight.fighter2.stats?.height}</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Peso</span>
+              <span class="text-white font-bold">{fight.fighter2.stats?.weight}</span>
+            </div>
+            <div class="bg-sf-bg p-3 rounded border border-sf-border">
+              <span class="text-xs text-sf-muted block">Alcance</span>
+              <span class="text-white font-bold">{fight.fighter2.stats?.reach}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Voting Section -->
+      <div class="max-w-2xl mx-auto bg-sf-surface border border-sf-border p-8 rounded-2xl text-center" data-aos="fade-up">
+        <h3 class="font-heading text-2xl uppercase mb-2">Pronóstico de la comunidad</h3>
+        <p class="text-sm text-sf-muted font-display mb-6">¿Quién se lleva la victoria? Vota por tu favorito para ver los resultados.</p>
+        
+        <div id="voting-widget" class="relative">
+          <div class="flex justify-between gap-4 mb-4">
+            <button class="vote-btn flex-1 py-4 rounded-xl font-bold bg-sf-bg border border-sf-border hover:bg-sf-primary hover:border-sf-primary hover:text-white transition-all shadow-sm" data-vote="1">
+              {fight.fighter1.name}
+            </button>
+            <button class="vote-btn flex-1 py-4 rounded-xl font-bold bg-sf-bg border border-sf-border hover:bg-sf-secondary hover:border-sf-secondary hover:text-white transition-all shadow-sm" data-vote="2">
+              {fight.fighter2.name}
+            </button>
+          </div>
+          
+          <!-- Results Bar -->
+          <div id="vote-results" class="hidden">
+            <div class="flex justify-between text-sm font-bold mb-3 px-1">
+              <span class={fight.fighter1.color} id="res-name-1">{fight.fighter1.name} (<span id="pct-1">0</span>%)</span>
+              <span class={fight.fighter2.color} id="res-name-2">{fight.fighter2.name} (<span id="pct-2">0</span>%)</span>
+            </div>
+            <div class="h-4 bg-sf-bg rounded-full overflow-hidden flex border border-sf-border">
+              <div id="bar-1" class="h-full bg-sf-primary transition-all duration-1000 ease-out" style="width: 50%"></div>
+              <div id="bar-2" class="h-full bg-sf-secondary transition-all duration-1000 ease-out" style="width: 50%"></div>
+            </div>
+            <p class="text-xs text-sf-muted mt-5">Resultados basados en <span id="total-votes">0</span> votos en la comunidad.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio effect -->
+      <audio id="bell-sound" src="https://www.myinstants.com/media/sounds/boxing-bell.mp3" preload="auto"></audio>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Simple voting interaction
+  const buttons = document.querySelectorAll('.vote-btn');
+  const resultsDiv = document.getElementById('vote-results');
+  const bar1 = document.getElementById('bar-1');
+  const bar2 = document.getElementById('bar-2');
+  const pct1 = document.getElementById('pct-1');
+  const pct2 = document.getElementById('pct-2');
+  const totalVotes = document.getElementById('total-votes');
+  const bellSound = document.getElementById('bell-sound') as HTMLAudioElement;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Reproducir sonido inmersivo
+      if(bellSound) {
+        bellSound.volume = 0.4;
+        bellSound.play().catch(err => console.log("Audio no pudo reproducirse automáticamente"));
+      }
+
+      const voteFor = (e.target as HTMLElement).getAttribute('data-vote');
+      
+      // hide buttons
+      buttons.forEach(b => {
+        (b as HTMLElement).style.opacity = '0';
+        setTimeout(() => (b as HTMLElement).style.display = 'none', 200);
+      });
+      
+      setTimeout(() => {
+        // show results
+        if(resultsDiv) resultsDiv.classList.remove('hidden');
+        
+        // generate realistic stats based on vote
+        let baseTotal = Math.floor(Math.random() * 5000) + 1500;
+        let p1 = Math.floor(Math.random() * 60) + 20; // 20-80%
+        
+        if (voteFor === '1') {
+          p1 = Math.floor(Math.random() * 25) + 60; // 60-85% for voted side
+        } else {
+          p1 = Math.floor(Math.random() * 25) + 15; // 15-40% for the other side
+        }
+        
+        const p2 = 100 - p1;
+        
+        // Animate bars from 50 to target
+        setTimeout(() => {
+          if(bar1) bar1.style.width = p1 + '%';
+          if(bar2) bar2.style.width = p2 + '%';
+        }, 100);
+        
+        if(pct1) pct1.textContent = p1.toString();
+        if(pct2) pct2.textContent = p2.toString();
+        if(totalVotes) totalVotes.textContent = baseTotal.toLocaleString();
+      }, 250);
+    });
+  });
+</script>

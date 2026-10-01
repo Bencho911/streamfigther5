@@ -1,0 +1,263 @@
+---
+// ComoVer + Historia + CTA sections combined for page flow
+import { Image } from 'astro:assets';
+import imgWestcol from '../assets/peleadores/Westcol.avif';
+---
+
+<!-- ── Cómo Ver ─────────────────────────────────────────── -->
+<section
+  id="como-ver"
+  class="py-24 relative"
+  aria-labelledby="como-ver-heading"
+>
+  <div class="container mx-auto px-4">
+    <div class="bg-sf-surface border border-sf-kick/30 rounded-2xl p-8 md:p-16 relative overflow-hidden shadow-surface ">
+
+      <!-- Kick logo watermark -->
+      <div class="absolute -right-16 -bottom-16 opacity-[0.04] pointer-events-none" aria-hidden="true">
+        <svg class="w-80 h-80 text-sf-kick" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 3.5v17h-4v-5h-3v5H3v-17h11v5h3v-5h4Zm-8 12v-5h3v5h-3Z"/>
+        </svg>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+        <div data-aos="fade-right">
+          <h2 id="como-ver-heading" class="font-heading text-4xl md:text-5xl text-white uppercase tracking-tight mb-4 text-glow">
+            ¿Cómo ver<br>Stream Fighters 5?
+          </h2>
+          <p class="text-sf-muted text-lg mb-8">
+            La transmisión será completamente
+            <strong class="text-sf-kick">gratuita</strong>.
+            Solo necesitas una cuenta en Kick y prepararte para la historia.
+          </p>
+
+          <ol class="space-y-6 mb-8" aria-label="Pasos para ver la transmisión">
+            {[
+              {
+                step: '1',
+                title: 'Descarga la app de Kick',
+                desc: 'Disponible para iOS, Android, Smart TVs y en web. Crea tu cuenta gratis.',
+              },
+              {
+                step: '2',
+                title: 'Busca a WestCol',
+                desc: 'Sigue el canal @westcol y activa notificaciones para que te avise el 14.',
+              },
+              {
+                step: '3',
+                title: 'Conéctate el 14 de Nov desde las 17:00',
+                desc: 'Pre-show, alfombra roja y los 10 combates en un solo stream.',
+              },
+            ].map(({ step, title, desc }) => (
+              <li class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-9 h-9 rounded-full bg-sf-bg2 border border-sf-border
+                         flex items-center justify-center font-display font-bold text-sf-kick text-sm"
+                  aria-hidden="true"
+                >
+                  {step}
+                </div>
+                <div>
+                  <h3 class="font-bold text-white mb-0.5">{title}</h3>
+                  <p class="text-sm text-sf-muted">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <a
+            href="https://kick.com/westcol"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-bold text-sf-bg bg-sf-kick px-8 py-4 rounded-full
+                   hover:shadow-neon-green hover:scale-105 transition-all duration-200
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21 3.5v17h-4v-5h-3v5H3v-17h11v5h3v-5h4Zm-8 12v-5h3v5h-3Z"/>
+            </svg>
+            Ir al canal de WestCol en Kick
+          </a>
+        </div>
+
+        <!-- Phone mockup (decorative) -->
+        <div class="hidden md:flex justify-center" aria-hidden="true" data-aos="fade-left">
+          <div class="relative w-56 h-[480px] bg-black border-4 border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden rotate-6">
+            <div class="absolute top-0 inset-x-0 h-6 bg-black z-20 flex justify-center rounded-t-[2.5rem]">
+              <div class="w-16 h-4 bg-gray-900 rounded-b-xl"></div>
+            </div>
+            <div class="w-full h-full bg-sf-bg">
+              <div class="h-1/3 bg-sf-surface flex items-center justify-center border-b border-sf-border">
+                <span class="text-sf-kick font-heading text-xl animate-pulse">EN VIVO</span>
+              </div>
+              <div class="p-4 space-y-3">
+                <div class="h-3 bg-gray-800 rounded w-3/4"></div>
+                <div class="h-3 bg-gray-800 rounded w-1/2"></div>
+                <div class="mt-4 flex gap-2">
+                  <div class="w-7 h-7 rounded-full bg-gray-700"></div>
+                  <div class="flex-1 bg-gray-800 rounded-full h-7"></div>
+                </div>
+                <div class="h-2 bg-gray-800 rounded w-4/5 mt-2"></div>
+                <div class="h-2 bg-gray-800 rounded w-2/3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Historia / Timeline ─────────────────────────────── -->
+<section
+  id="historia"
+  class="py-24 relative overflow-hidden group"
+  aria-labelledby="historia-heading"
+>
+  <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+    <Image src={imgWestcol} alt="WestCol background" class="w-full h-full object-cover opacity-25 filter grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-1000" />
+    <div class="absolute inset-0 bg-gradient-to-b from-sf-bg via-sf-bg/60 to-sf-bg"></div>
+  </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16 " data-aos="fade-up">
+      <h2 id="historia-heading" class="font-heading text-4xl md:text-5xl text-white uppercase tracking-tight mb-4">
+        Cuatro ediciones. Una leyenda.
+      </h2>
+      <p class="text-sf-muted text-lg font-medium">El camino que nos trajo hasta el evento más grande.</p>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Vertical line -->
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-sf-border -translate-x-1/2" aria-hidden="true"></div>
+
+      {[
+        {
+          year: '2022',
+          title: 'Stream Fighters 1',
+          desc: 'El inicio de todo. Lo que parecía un chiste entre streams se convirtió en realidad. El primer golpe en la mesa de LatAm. Nadie sabía lo que estaba comenzando.',
+          side: 'right',
+          active: false,
+        },
+        {
+          year: '2023',
+          title: 'Stream Fighters 2',
+          desc: 'Profesionalizando el formato. Entraron marcas grandes, el nivel de boxeo subió notablemente y se rompieron récords de audiencia en Kick.',
+          side: 'left',
+          active: false,
+        },
+        {
+          year: '2024',
+          title: 'Stream Fighters 3',
+          desc: 'Movistar Arena Sold Out. La música tomó un papel protagónico. Las rivalidades se hicieron personales y el hype fue irreal. Colombia entera lo vio.',
+          side: 'right',
+          active: false,
+        },
+        {
+          year: '2025',
+          title: 'Stream Fighters 4',
+          desc: 'Coliseo MedPlus. Más de 15.000 almas. El evento se consagró como el equivalente latino de la Velada del Año, pero con pura esencia callejera y colombiana.',
+          side: 'left',
+          active: true,
+        },
+      ].map(({ year, title, desc, side, active }, i) => (
+        <div
+          class={`relative flex flex-col md:flex-row items-start md:items-center mb-14 `}
+          data-aos="fade-up"
+        >
+          <!-- Dot -->
+          <div
+            class={`absolute left-4 md:left-1/2 -translate-x-1/2 z-10 rounded-full
+              ${active
+                ? 'w-5 h-5 bg-sf-primary shadow-neon-red animate-pulse'
+                : 'w-4 h-4 bg-sf-bg border-2 border-sf-muted'
+              }`}
+            aria-hidden="true"
+          ></div>
+
+          {/* Right side (odd items) */}
+          {side === 'right' ? (
+            <>
+              <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 text-left md:text-right">
+                <time datetime={year} class="text-sf-primary font-display font-bold text-xl block">{year}</time>
+                <h3 class="font-heading text-2xl text-white uppercase mt-1">{title}</h3>
+                <p class="text-sf-muted text-sm mt-2 leading-relaxed">{desc}</p>
+              </div>
+              <div class="w-full md:w-1/2 hidden md:block"></div>
+            </>
+          ) : (
+            <>
+              <div class="w-full md:w-1/2 hidden md:block"></div>
+              <div class="w-full md:w-1/2 pl-12 md:pl-12 text-left">
+                <time datetime={year} class="text-sf-primary font-display font-bold text-xl block">{year}</time>
+                <h3 class="font-heading text-2xl text-white uppercase mt-1">{title}</h3>
+                <p class="text-sf-muted text-sm mt-2 leading-relaxed">{desc}</p>
+              </div>
+            </>
+          )}
+        </div>
+      ))}
+
+      <!-- SF5 teaser -->
+      <div class="relative flex items-start md:items-center " data-aos="fade-up">
+        <div
+          class="absolute left-4 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full
+                 bg-gradient-to-br from-sf-primary to-sf-secondary shadow-neon-red z-10 animate-pulse"
+          aria-hidden="true"
+        ></div>
+        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 text-left md:text-right">
+          <time datetime="2026" class="text-sf-primary font-display font-bold text-2xl block">2026</time>
+          <h3 class="font-heading text-3xl text-white uppercase mt-1">Stream Fighters 5</h3>
+          <p class="text-sf-muted text-sm mt-2 leading-relaxed">
+            El capítulo más grande está por escribirse. WestCol vs. Blessd. 10 combates.
+            El Coliseo completo. La historia te espera el <strong class="text-white">14 de noviembre</strong>.
+          </p>
+        </div>
+        <div class="w-full md:w-1/2 hidden md:block"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA Final ───────────────────────────────────────── -->
+<section
+  class="py-24 relative overflow-hidden bg-sf-primary"
+  aria-labelledby="cta-heading"
+>
+  <div
+    class="absolute inset-0 opacity-10 mix-blend-multiply pointer-events-none"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='%23000' opacity='.3'/%3E%3C/svg%3E&quot;)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container mx-auto px-4 text-center relative z-10 ">
+    <h2 id="cta-heading" class="font-heading text-5xl md:text-7xl text-white uppercase tracking-tight mb-6" data-aos="fade-up">
+      El Ring Te Espera
+    </h2>
+    <p class="text-white/80 text-xl md:text-2xl font-medium max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+      No te quedes por fuera. Asegura tu lugar en la historia o sintoniza en vivo y gratis.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+      <a
+        href="https://taquillalive.com/streamfighters5"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-bold text-lg text-sf-primary bg-white px-8 py-4 rounded-full
+               hover:scale-105 transition-transform shadow-lg
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-sf-primary"
+      >
+        Comprar entradas
+      </a>
+      <a
+        href="https://kick.com/westcol"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-bold text-lg text-white bg-black/30 border border-white/30 px-8 py-4 rounded-full
+               hover:bg-black/50 hover:border-white transition-all
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-sf-primary"
+      >
+        Ver en Kick — gratis
+      </a>
+    </div>
+  </div>
+</section>
