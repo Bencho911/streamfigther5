@@ -174,13 +174,13 @@ export const fights: Fight[] = [
     weight: 'Peso Pluma',
     fighter1: {
       name: 'El Agropecuario', nickname: 'El Rey de los Agropecuarios', color: 'text-lime-400',
-      stats: { age: 18, height: '1.78m', weight: '78kg', reach: '1.82m' },
-      socials: { instagram: 'https://instagram.com/lagranjadelborrego', kick: 'https://kick.com/elagro' },
+      stats: { age: 36, height: '1.78m', weight: '78kg', reach: '1.82m' },
+      socials: { instagram: 'https://instagram.com', kick: 'https://kick.com' },
       image: imgAgropecuario
     },
     fighter2: {
       name: 'Daren', nickname: 'Mortadelo', color: 'text-indigo-400',
-      stats: { age: 21, height: '1.85m', weight: '100kg', reach: '1.80m' },
+      stats: { age: 28, height: '1.85m', weight: '100kg', reach: '1.80m' },
       socials: { instagram: 'https://instagram.com/darencp', twitter: 'https://x.com/darencp' },
       image: imgDaren
     },
