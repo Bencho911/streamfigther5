@@ -68,18 +68,18 @@ export const fights: Fight[] = [
     labelColor: 'red',
     weight: 'Peso Libre',
     fighter1: {
-      name: 'WestCol', nickname: 'el pretty boy', color: 'text-sf-primary',
+      name: 'WestCol', nickname: 'Stiven (Robot)', color: 'text-sf-primary',
       image: imgWestcol,
       stats: { age: 23, height: '1.65m', weight: '76kg', reach: '1.66m' },
       socials: { instagram: 'https://instagram.com/westcol', kick: 'https://kick.com/westcol' }
     },
     fighter2: {
-      name: 'Blessd', nickname: 'El Bendito', color: 'text-sf-secondary',
+      name: 'Blessd', nickname: 'Diomedes (Robot)', color: 'text-sf-secondary',
       image: imgBlessd,
       stats: { age: 24, height: '1.74m', weight: '74kg', reach: '1.70m' },
       socials: { instagram: 'https://instagram.com/blessd', twitter: 'https://x.com/blessd' }
     },
-    description: 'El combate más esperado. Dos gigantes del internet y la música urbana colombiana frente a frente.',
+    description: 'El primer combate de boxeo de robots gigantes en Colombia. WestCol pilotará a "Stiven" y Blessd a "Diomedes".',
     gradient: 'rgba(127,0,0,0.35), rgba(88,0,127,0.25)',
     posterImage: posterWestcolBlessd
   },
