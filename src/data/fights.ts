@@ -68,7 +68,7 @@ export const fights: Fight[] = [
     labelColor: 'red',
     weight: 'Peso Libre',
     fighter1: {
-      name: 'WestCol', nickname: 'El Organizador', color: 'text-sf-primary',
+      name: 'WestCol', nickname: 'el pretty boy', color: 'text-sf-primary',
       image: imgWestcol,
       stats: { age: 23, height: '1.65m', weight: '76kg', reach: '1.66m' },
       socials: { instagram: 'https://instagram.com/westcol', kick: 'https://kick.com/westcol' }
@@ -88,17 +88,17 @@ export const fights: Fight[] = [
     label: 'Co-Main Event',
     labelColor: 'purple',
     weight: 'Categoría Libre',
-    fighter1: { 
-      name: 'Rey de la City', nickname: 'El Monarca', color: 'text-purple-400', 
-      stats: { age: 27, height: '1.78m', weight: '80kg', reach: '1.80m' }, 
-      socials: { instagram: 'https://instagram.com/reydelacity', kick: 'https://kick.com/reydelacity' }, 
-      image: imgRey 
+    fighter1: {
+      name: 'Rey de la City', nickname: 'El Rey', color: 'text-purple-400',
+      stats: { age: 27, height: '1.78m', weight: '80kg', reach: '1.80m' },
+      socials: { instagram: 'https://instagram.com/reydelacity', kick: 'https://kick.com/reydelacity' },
+      image: imgRey
     },
-    fighter2: { 
-      name: 'Wegotkicks', nickname: 'El Sneakerhead', color: 'text-pink-400', 
-      stats: { age: 25, height: '1.82m', weight: '85kg', reach: '1.84m' }, 
-      socials: { instagram: 'https://instagram.com/wegotkicks', kick: 'https://kick.com/wegotkicks' }, 
-      image: imgWegot 
+    fighter2: {
+      name: 'Wegotkicks', nickname: 'El Sneakerhead', color: 'text-pink-400',
+      stats: { age: 25, height: '1.82m', weight: '85kg', reach: '1.84m' },
+      socials: { instagram: 'https://instagram.com/wegotkicks', kick: 'https://kick.com/wegotkicks' },
+      image: imgWegot
     },
     description: 'Estilo y flow en el ring. Una pelea donde el honor de la calle está en juego.',
     gradient: 'rgba(88,28,135,0.35), rgba(131,24,67,0.30)',
@@ -109,17 +109,17 @@ export const fights: Fight[] = [
     label: 'Pelea de Renombre',
     labelColor: 'default',
     weight: 'Peso Medio',
-    fighter1: { 
-      name: 'Sebastucho', nickname: 'La Locura', color: 'text-blue-400', 
-      stats: { age: 22, height: '1.70m', weight: '70kg', reach: '1.72m' }, 
-      socials: { instagram: 'https://instagram.com/sebastucho_', kick: 'https://kick.com/sebastucho' }, 
-      image: imgSebastucho 
+    fighter1: {
+      name: 'Sebastucho', nickname: 'La Locura', color: 'text-blue-400',
+      stats: { age: 22, height: '1.70m', weight: '70kg', reach: '1.72m' },
+      socials: { instagram: 'https://instagram.com/sebastucho_', kick: 'https://kick.com/sebastucho' },
+      image: imgSebastucho
     },
-    fighter2: { 
-      name: 'Leandro', nickname: 'El Estratega', color: 'text-cyan-400', 
-      stats: { age: 24, height: '1.73m', weight: '71kg', reach: '1.74m' }, 
-      socials: { instagram: 'https://instagram.com/leandro_ig', kick: 'https://kick.com/leandro' }, 
-      image: imgLeandro 
+    fighter2: {
+      name: 'Leandro', nickname: 'La sapa', color: 'text-cyan-400',
+      stats: { age: 24, height: '1.73m', weight: '71kg', reach: '1.74m' },
+      socials: { instagram: 'https://instagram.com/leandro_ig', kick: 'https://kick.com/leandro' },
+      image: imgLeandro
     },
     description: 'Rivalidad al máximo nivel. La técnica de Leandro contra la explosividad de Sebastucho.',
     gradient: 'rgba(29,78,216,0.35), rgba(21,94,117,0.30)',
@@ -130,17 +130,17 @@ export const fights: Fight[] = [
     label: 'Choque de Titanes',
     labelColor: 'red',
     weight: 'Peso Pesado',
-    fighter1: { 
-      name: 'Herrera', nickname: 'El Fuerte', color: 'text-green-400', 
-      stats: { age: 29, height: '1.85m', weight: '105kg', reach: '1.88m' }, 
-      socials: { instagram: 'https://instagram.com/elherrera', kick: 'https://kick.com/elherrera' }, 
-      image: imgHerrera 
+    fighter1: {
+      name: 'Herrera', nickname: 'El de la H', color: 'text-green-400',
+      stats: { age: 29, height: '1.85m', weight: '105kg', reach: '1.88m' },
+      socials: { instagram: 'https://instagram.com/elherrera', kick: 'https://kick.com/elherrera' },
+      image: imgHerrera
     },
-    fighter2: { 
-      name: 'JH', nickname: '¡Qué Bendición!', color: 'text-yellow-400', 
-      stats: { age: 31, height: '1.82m', weight: '98kg', reach: '1.85m' }, 
-      socials: { instagram: 'https://instagram.com/jhdelacruz777', kick: 'https://kick.com/jhdelacruz777' }, 
-      image: imgJh 
+    fighter2: {
+      name: 'JH', nickname: '¡Qué Bendición!', color: 'text-yellow-400',
+      stats: { age: 31, height: '1.82m', weight: '98kg', reach: '1.85m' },
+      socials: { instagram: 'https://instagram.com/jhdelacruz777', kick: 'https://kick.com/jhdelacruz777' },
+      image: imgJh
     },
     description: 'Un verdadero choque de trenes. El Coliseo MedPlus temblará con cada golpe.',
     gradient: 'rgba(20,83,45,0.35), rgba(113,63,18,0.30)',
@@ -151,17 +151,17 @@ export const fights: Fight[] = [
     label: 'El Clásico',
     labelColor: 'default',
     weight: 'Peso Welter',
-    fighter1: { 
-      name: 'Valentino', nickname: 'El Galán', color: 'text-rose-400', 
-      stats: { age: 21, height: '1.74m', weight: '68kg', reach: '1.75m' }, 
-      socials: { instagram: 'https://instagram.com/valentinobyle', twitter: 'https://x.com/valentino' }, 
-      image: imgValentino 
+    fighter1: {
+      name: 'Valentino', nickname: 'El Galán', color: 'text-rose-400',
+      stats: { age: 21, height: '1.74m', weight: '68kg', reach: '1.75m' },
+      socials: { instagram: 'https://instagram.com/valentinobyle', twitter: 'https://x.com/valentino' },
+      image: imgValentino
     },
-    fighter2: { 
-      name: 'Emiro', nickname: 'El Fuego', color: 'text-orange-400', 
-      stats: { age: 23, height: '1.76m', weight: '65kg', reach: '1.76m' }, 
-      socials: { instagram: 'https://instagram.com/emironavarro', kick: 'https://kick.com/emironavarro' }, 
-      image: imgEmiro 
+    fighter2: {
+      name: 'Emiro', nickname: 'El Fuego', color: 'text-orange-400',
+      stats: { age: 23, height: '1.76m', weight: '65kg', reach: '1.76m' },
+      socials: { instagram: 'https://instagram.com/emironavarro', kick: 'https://kick.com/emironavarro' },
+      image: imgEmiro
     },
     description: 'Duelo de personalidades. Valentino busca mantener su buena racha ante un Emiro hambriento de victoria.',
     gradient: 'rgba(136,19,55,0.35), rgba(51,65,85,0.30)',
@@ -172,17 +172,17 @@ export const fights: Fight[] = [
     label: 'Apertura',
     labelColor: 'default',
     weight: 'Peso Pluma',
-    fighter1: { 
-      name: 'El Agropecuario', nickname: 'El de la Finca', color: 'text-lime-400', 
-      stats: { age: 20, height: '1.68m', weight: '62kg', reach: '1.70m' }, 
-      socials: { instagram: 'https://instagram.com/lagranjadelborrego', kick: 'https://kick.com/elagro' }, 
-      image: imgAgropecuario 
+    fighter1: {
+      name: 'El Agropecuario', nickname: 'El Rey de los Agropecuarios', color: 'text-lime-400',
+      stats: { age: 20, height: '1.78m', weight: '78kg', reach: '1.82m' },
+      socials: { instagram: 'https://instagram.com/lagranjadelborrego', kick: 'https://kick.com/elagro' },
+      image: imgAgropecuario
     },
-    fighter2: { 
-      name: 'Daren', nickname: 'El Urbano', color: 'text-indigo-400', 
-      stats: { age: 21, height: '1.70m', weight: '65kg', reach: '1.71m' }, 
-      socials: { instagram: 'https://instagram.com/darencp', twitter: 'https://x.com/darencp' }, 
-      image: imgDaren 
+    fighter2: {
+      name: 'Daren', nickname: 'Mortadelo', color: 'text-indigo-400',
+      stats: { age: 21, height: '1.85m', weight: '100kg', reach: '1.80m' },
+      socials: { instagram: 'https://instagram.com/darencp', twitter: 'https://x.com/darencp' },
+      image: imgDaren
     },
     description: 'El campo contra la ciudad. Una pelea que calentará los motores para toda la velada.',
     gradient: 'rgba(112,26,117,0.35), rgba(76,29,149,0.30)',
